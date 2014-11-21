@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Basic HTML Page</title>
+    <link rel="stylesheet" href="home.css" />
+</head>
+<body>
+
+<h3>Add grocery to list</h3>
+
+<% if @error_messages %>
+  <ul class="error">
+    <% @error_messages.each do |msg| %>
+      <li><%= msg %></li>
+    <% end %>
+  </ul>
+<% end %>
+
+<ul>
+ <%@list.each do |item|%>
+    <%=item%><br>
+    <%end%>
+    </ul>
+
+<div>
+  <form method="post" action="/groceries">
+    <div>
+
+      <label for="groceries"></label>
+      <input type="text" id="groceries" placeholder="Add Grocery" name="groceries" value="<%= @groceries %>"><input type="submit" value="Add">
+    </div>
+  </form>
+</div>
+
+</body>
